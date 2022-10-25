@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void printCalc(int _input1, int _input2) {
+    // 이 부분을 구현하라 =====================
+    int n = _input1 % 10;
+    int m = _input1 / 10 % 10;
+
+    printf("%d\n", _input2 * n);
+    printf("%d\n", _input2 * m);
+    printf("%d", _input1 * _input2);
+    // ========================================
+}
+
+
+int main() {
+    int input1, input2;
+    scanf("%d %d", &input1, &input2);
+
+    printCalc(input1, input2);
+
+    return 0;
+}
