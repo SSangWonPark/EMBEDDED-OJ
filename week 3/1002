@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+void printBinary(unsigned int _x) {
+    // 이 부분을 구현하라 ==============================
+    for (int i = 7; i >= 0; i--)
+    {
+        if (((_x >> i) & 1) == 1)
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
+    }
+    // =================================================
+}
+
+int main() {
+
+    unsigned int x;
+    scanf("%d", &x);
+
+    printBinary(x);
+
+    return 0;
+}
