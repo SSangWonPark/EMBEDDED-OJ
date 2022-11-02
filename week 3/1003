@@ -1,1 +1,28 @@
+#include <stdio.h>
 
+void printBinary(unsigned int _x) {
+    // 이 부분을 구현하라 ==============================
+    int count = 0;
+
+    while (_x > 0)
+    {
+        if (_x % 2 == 1)
+        {
+            count++;
+        }
+        _x /= 2;
+    }
+
+    printf("%d", count);
+    // =================================================
+}
+
+int main() {
+
+    unsigned int x;
+    scanf("%d", &x);
+
+    printBinary(x);
+
+    return 0;
+}
