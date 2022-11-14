@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int  isKeyIncluded(char* str, char* key);
+
+int main(void)
+{
+	char str[100];
+	char key[10];
+
+	scanf("%s", str);
+	scanf("%s", key);
+
+	printf("%d", isKeyIncluded(str, key));
+
+}
+
+int  isKeyIncluded(char* str, char* key) {
+
+	int i = 0;
+
+	while (*str != '\0')
+	{
+		i = 0;
+
+		if (*str == *key)
+		{
+			while (*(str + i) != '\0' && *(key + i) != '\0')
+			{
+				if (*(str + i) != *(key + i))
+				{
+					break;
+				}
+				i++;
+			}
+
+			if (*(key + i) == '\0')
+			{
+				return 1;
+			}
+		}
+
+		str++;
+	}
+
+	return 0;
+}
