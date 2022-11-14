@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int cmp(char src[][100]);
+
+int main(void)
+{
+	char arr[2][100];
+
+	scanf("%s", arr[0]);
+	scanf("%s", arr[1]);
+
+	printf("%d", cmp(arr)); // 1 또는 -1이 리턴되어 출력 되는 형태
+
+	return 0;
+}
+
+int cmp(char src[][100]){
+
+	int i = 0;
+
+	while (1)
+	{
+		if (src[0][i] == '\0')
+		{
+			break;
+		}
+
+		if (src[0][i] >= 'a' && 'z' >= src[0][i])
+		{
+			src[0][i] = src[0][i] - 'a' + 'A';
+		}
+		else if (src[0][i] >= 'A' && 'Z' >= src[0][i])
+		{
+			src[0][i] = src[0][i] - 'A' + 'a';
+		}
+
+		if (src[0][i] != src[1][i])
+		{
+			return -1;
+		}
+
+		i++;
+	}
+
+	return 1;
+}
