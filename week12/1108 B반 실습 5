@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int p[100];
+    int** q = NULL;
+
+    int size; // 배열 p의 사이즈
+    int n; // 몇 행으로 만들 것인가
+
+    scanf("%d %d", &size, &n);
+
+    // 여기에 코드 작성 =======================================
+
+    if (size % n != 0)
+    {
+        printf("ERROR");
+        return 0;
+    }
+
+    q = (int**)malloc(sizeof(int*) * n);
+
+    for (int i = 0; i < n; i++)
+    {
+        q[i] = (int*)malloc(sizeof(int) * (size/n));
+    }
+
+    for (int i = 0; i < size; i++)
+    {
+        scanf("%d", p + i);
+    }
+
+    int k = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < size / n; j++) {
+            q[i][j] = p[k];
+            k++;
+        }
+    }
+
+    // ==================================================
+
+    // 출력
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < size / n; j++) {
+            printf("%d ", q[i][j]);
+        }
+        printf("\n");
+    }
+
+    // 동적할당 free
+    for (int i = 0; i < n; i++) free(q[i]);
+    free(q);
+
+    return 0;
+}
