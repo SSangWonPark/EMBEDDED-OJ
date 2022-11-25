@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int cmp(char str[2][100]) {
+    int ans = 0;
+    int i = 0;
+
+    while (str[0][i] != '\0')
+    {
+        if (str[0][i] == str[1][i])
+        {
+            ans++;
+        }
+        i++;
+    }
+
+    return ans;
+}
+
+int main() {
+
+    char str[2][100];
+    int cnt = 0; // 같은자리 같은문자 개수
+
+    // 입력
+    scanf("%s", str[0]);
+    scanf("%s", str[1]);
+
+    // cmp 함수 호출 ====================
+    cnt = cmp(str);
+    // =============================
+
+    //출력
+    printf("%d", cnt);
+
+    return 0;
+}
