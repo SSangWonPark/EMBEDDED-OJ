@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int** p = NULL;
+    int** q = NULL;
+
+    int a, b; // 순서대로 행, 열
+    scanf("%d %d", &a, &b);
+
+    // 코드 작성 ==============================
+
+    p = (int**)malloc(sizeof(int*) * a);
+
+    for (int i = 0; i < a; i++)
+    {
+        p[i] = (int*)malloc(sizeof(int) * b);
+    }
+
+    q = (int**)malloc(sizeof(int*) * b);
+
+    for (int i = 0; i < b; i++)
+    {
+        q[i] = (int*)malloc(sizeof(int) * a);
+    }
+
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            scanf("%d", &p[i][j]);
+
+            q[j][i] = p[i][j];
+        }
+    }
+
+    // ====================================
+
+    // 출력
+    for (int i = 0; i < b; i++) {
+        for (int j = 0; j < a; j++) {
+            printf("%d ", q[i][j]);
+        }
+        printf("\n");
+    }
+
+    // 동적할당 free
+    for (int i = 0; i < a; i++) free(p[i]);
+    free(p);
+    for (int i = 0; i < b; i++) free(q[i]);
+    free(q);
+
+    return 0;
+}
