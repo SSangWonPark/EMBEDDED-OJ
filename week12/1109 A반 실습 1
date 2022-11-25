@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void makeArrayandInput(char** str) {
+
+    for (int i = 0; i < 6; i++)
+    {
+        str[i] = (char*)malloc(sizeof(char) * 100);
+    }
+
+    for (int i = 0; i < 6; i++)
+    {
+        scanf("%s", str[i]);
+    }
+}
+
+int main() {
+
+    char* str[6];
+
+    makeArrayandInput(str);
+
+    // 출력
+    for (int j = 0; j < 6; j++)
+    {
+        printf("%s\n", str[j]);
+    }
+
+    // 동적할당 free
+    for (int i = 0; i < 6; i++) free(str[i]);
+
+    return 0;
+}
