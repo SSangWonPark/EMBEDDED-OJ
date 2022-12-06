@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+    
+    struct human {
+        char name[10];
+        int age, height;
+    }a, b;
+
+    scanf("%s %d %d", &a.name, &a.age, &a.height);
+    scanf("%s %d %d", &b.name, &b.age, &b.height);
+
+    if (a.age == b.age)
+    {
+        a.name[0] = 'S';
+        a.name[1] = 'A';
+        a.name[2] = 'M';
+        a.name[3] = 'E';
+        a.name[4] = '\0';
+        b.name[0] = 'S';
+        b.name[1] = 'A';
+        b.name[2] = 'M';
+        b.name[3] = 'E';
+        b.name[4] = '\0';
+    }
+    else if (a.age < b.age)
+    {
+        int i;
+        for (i = 0; b.name[i] != '\0'; i++)
+        {
+            a.name[i] = b.name[i];
+        }
+        a.name[i] = '\0';
+    }
+    else
+    {
+        int i;
+        for (i = 0; a.name[i] != '\0'; i++)
+        {
+            b.name[i] = a.name[i];
+        }
+        b.name[i] = '\0';
+    }
+
+    printf("%s %d %d\n", a.name, a.age, a.height);
+    printf("%s %d %d", b.name, b.age, b.height);
+
+    return 0;
+}
