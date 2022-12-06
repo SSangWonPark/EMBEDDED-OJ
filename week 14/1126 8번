@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+int countZero(char str[]) {
+    int arr[8];
+    int sum = 0;
+    int ans = 0;
+
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] >= 'a')
+        {
+            arr[i] = str[i] - 'a' + 10;
+        }
+        else if (str[i] >= 'A')
+        {
+            arr[i] = str[i] - 'A' + 10;
+        }
+        else
+        {
+            arr[i] = str[i] - '0';
+        }
+        i++;
+    }
+
+    for (int j = 0; j < i; j++)
+    {
+        for (int k = j; k < i - 1; k++)
+        {
+            arr[j] = arr[j] * 16;
+        }
+        sum = sum + arr[j];
+    }
+
+    while (sum > 0)
+    {
+        if (sum % 10 == 0)
+        {
+            ans++;
+        }
+        sum = sum / 10;
+    }
+
+    return ans;
+}
+
+int main() {
+
+    char str[9];
+    scanf("%s", str);
+
+    printf("%d", countZero(str));
+
+    return 0;
+}
+#endif
+
+#if 0
+#include <stdio.h>
+
+int main() {
+
+}
