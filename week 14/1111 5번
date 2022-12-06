@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int isKeyIncluded(char str[], char key[]) {
+    int i = 0;
+    int k = 1;
+
+    while (str[i] != '\0')
+    {
+        if (str[i] == key[0] || str[i] == key[0] - 'a' + 'A' || str[i] == key[0] - 'A' + 'a')
+        {
+            while (key[k] != '\0')
+            {
+                if (str[i + k] != key[k] && str[i + k] != key[k] - 'a' + 'A' && str[i + k] != key[k] - 'A' + 'a')
+                {
+                    break;
+                }
+                k++;
+            }
+            if (key[k] == '\0')
+            {
+                return 1;
+            }
+            k = 1;
+        }
+        i++;
+    }
+
+    return 0;
+};
+
+int main(void)
+{
+    char str[100];
+    char key[10];
+
+    scanf("%s", str);
+    scanf("%s", key);
+
+    printf("%d", isKeyIncluded(str, key));
+    return 0;
+
+}
