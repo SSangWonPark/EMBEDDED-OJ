@@ -464,7 +464,9 @@ int main() {
 
 #if 1
 #include <stdio.h>
-
+// 풀지못한 문제 사이트가 터져서 모르는 문제
+// 아마도 숫자를 받으면 한글로 만드는 게 문제
+// 123 --> 일백이십삼
 void str2korean(char data[], char result[]) {
 
 };
